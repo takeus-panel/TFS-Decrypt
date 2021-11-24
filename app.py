@@ -11,12 +11,15 @@ time.sleep(1)
 print(
 """
 ------
-App for file decryption (file manager)
+App for file decryption 
+from file manager
+
 Takeus 2021
 ------
 """)
 
 file_path = input('File: ')
+file_final = os.path.splitext(file_path)[0]
 
 # opening the encrypted file
 with open('{}'.format(file_path), 'rb') as enc_file:
@@ -27,6 +30,6 @@ decrypted = fernet.decrypt(encrypted)
   
 # opening the file in write mode and
 # writing the decrypted data
-with open('{}'.format(file_path), 'wb') as dec_file:
+with open('{}'.format(file_final), 'wb') as dec_file:
     dec_file.write(decrypted)
 

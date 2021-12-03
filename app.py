@@ -15,9 +15,13 @@ App for file decryption
 from file manager
 ------
 """)
+time.sleep(1)
 
 file_path = input('File: ')
 file_final = os.path.splitext(file_path)[0]
+
+time.sleep(1)
+print('\nplease wait')
 
 # opening the encrypted file
 with open('{}'.format(file_path), 'rb') as enc_file:

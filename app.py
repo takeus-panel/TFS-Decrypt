@@ -1,23 +1,24 @@
-###########################################
-#### APP FOR DECRYPTION (FILE MANAGER) ####
-###########################################
+####################################
+#### FILE DECRYPTION (FOR TFS) #####
+####################################
 import os, time
 from cryptography.fernet import Fernet
 
-decrypt_key = '6jd6N2h0UAEboT6MSlWIfgMoYlg4CL94_ReA6PCLMWA='
+decrypt_key = '' # Put your decrypt key here
+
 fernet = Fernet(decrypt_key)
 
 time.sleep(1)
 print(
 """
 ------
-App for file decryption 
-from file manager
+File Decryption
+For TFS (Takeus File Sharing)
 ------
 """)
 time.sleep(1)
 
-file_path = input('File: ')
+file_path = input('Path: ')
 file_final = os.path.splitext(file_path)[0]
 
 time.sleep(1)
@@ -35,3 +36,4 @@ decrypted = fernet.decrypt(encrypted)
 with open('{}'.format(file_final), 'wb') as dec_file:
     dec_file.write(decrypted)
 
+## V1.0

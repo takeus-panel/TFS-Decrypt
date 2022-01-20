@@ -2,9 +2,15 @@
 #### FILE DECRYPTION (FOR TFS) #####
 ####################################
 import os, time
-from cryptography.fernet import Fernet
+try:
+    from cryptography.fernet import Fernet
+except:
+    os.system('pip install cryptography')
+    from cryptography.fernet import Fernet
+
 
 decrypt_key = '' # Put your decrypt key here
+
 
 fernet = Fernet(decrypt_key)
 

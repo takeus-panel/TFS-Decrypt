@@ -5,16 +5,9 @@ import os, time
 try:
     from cryptography.fernet import Fernet
 except:
-    os.system('pip install cryptography')
+    os.system('pip install cryptography') # Windows, on linux 'pip3...'
     from cryptography.fernet import Fernet
 
-
-decrypt_key = '' # Put your decrypt key here
-
-
-fernet = Fernet(decrypt_key)
-
-time.sleep(1)
 print(
 """
 ------
@@ -23,6 +16,9 @@ For TFS (Takeus File Sharing)
 ------
 """)
 time.sleep(1)
+
+decrypt_key = input('Decryption KEY: ')
+fernet = Fernet(decrypt_key)
 
 file_path = input('Path: ')
 file_final = os.path.splitext(file_path)[0]
@@ -42,4 +38,6 @@ decrypted = fernet.decrypt(encrypted)
 with open('{}'.format(file_final), 'wb') as dec_file:
     dec_file.write(decrypted)
 
-## V1.0
+print('\nDone!')
+
+## V1.1
